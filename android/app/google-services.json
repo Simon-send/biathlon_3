@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "449844133804",
+    "project_id": "biathlon3-157dc",
+    "storage_bucket": "biathlon3-157dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449844133804:android:3c46dd900d26185b94c409",
+        "android_client_info": {
+          "package_name": "com.example.biathlon_3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449844133804-9hchngssr9paf0c0e9oo6jp4cftc1nle.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSwUz5-NQcQ9NwEGfa-D9ZH2GOJFBlXqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449844133804-9hchngssr9paf0c0e9oo6jp4cftc1nle.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
