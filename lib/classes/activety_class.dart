@@ -1,16 +1,12 @@
 class Activity {
   String activityName;
-  int duration;
   List<List<double>> shots;
 
-  Activity(
-      {required this.activityName,
-      required this.duration,
-      required this.shots});
+  Activity({required this.activityName, required this.shots});
 
   factory Activity.fromJson(Map<String, dynamic> json) {
     final activityName = json['activity_name'] as String;
-    final duration = json['duration'] as int;
+
     final shotsJson = json['shots'] as List<dynamic>;
 
     final shots = shotsJson.map<List<double>>((value) {
@@ -19,7 +15,6 @@ class Activity {
 
     return Activity(
       activityName: activityName,
-      duration: duration,
       shots: shots,
     );
   }
@@ -27,7 +22,6 @@ class Activity {
   Map<String, dynamic> toJson() {
     return {
       'activity_name': activityName,
-      'duration': duration,
       'shots': convertListToJson(shots),
     };
   }

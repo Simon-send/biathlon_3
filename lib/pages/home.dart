@@ -1,5 +1,6 @@
 import 'package:biathlon_3/firebase_repository/authentication_repository.dart';
 import 'package:biathlon_3/firebase_repository/firebase_repository.dart';
+import 'package:biathlon_3/pages/target_screans/target.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,9 +14,9 @@ class HomeScrean extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController ActivetyName = TextEditingController();
     Activity activity = Activity(
       activityName: 'Some Activity',
-      duration: 60,
       shots: [
         [1.5, 2.3],
         [3.7, 4.1],
@@ -28,6 +29,15 @@ class HomeScrean extends StatelessWidget {
     Map<String, dynamic> activityJson = activity.toJson();
 
     final firestoreReposetory = Get.put(FirestoreReposetory());
+
+    String isTyped(String string) {
+      if (string == '') {
+        return 'My Activety';
+      } else {
+        return string;
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('home'),
@@ -45,12 +55,19 @@ class HomeScrean extends StatelessWidget {
         ),
         ElevatedButton(
             onPressed: () {
-              FirebaseFirestore.instance
-                  .collection('users')
-                  .doc()
-                  .set({'a': 'a'});
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Target(name: isTyped(ActivetyName.text))),
+              );
             },
-            child: Text('det er nå det skjer'))
+            child: Text('det er nå det skjer')),
+        TextFormField(
+          controller: ActivetyName,
+          decoration: const InputDecoration(
+              label: Text('Activety Name (not requierd)')),
+        ),
       ]),
     );
   }
